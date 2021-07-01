@@ -1,0 +1,19 @@
+{%extends "common.html"%}
+{%block content%}
+
+    <article class="media content-section">
+      <img src="{{ object.author.profile.profile_pic.url }}" alt="user" class="rounded-circle account-img">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="{%url 'user-posts' post.author.username%}">{{ object.author }}</a>
+            <small class="text-muted">{{ object.date_posted }}</small>
+          </div>
+          <h2>{{ object.title }}</h2>
+          <p class="article-content">{{ object.content }}</p>
+          <a href="{%url 'delete-post' object.id%}">
+            <button class="btn btn-outline-danger" >Delete Post</button></a> 
+            <a href="{%url 'update-post' object.id%}">
+                <button class="btn btn-outline-info" >Update Post</button></a> 
+        </div>
+      </article>
+{%endblock content%}
